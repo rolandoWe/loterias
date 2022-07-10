@@ -1,0 +1,26 @@
+
+.tr:nth-child(even){
+background-color: rgb(242, 242, 242);
+}
+
+.tr i,.tiempos_hoy i{
+    /* border: solid rgb(211, 210, 210) 1px; */
+    box-shadow: 0px 0px 2px black;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    /* line-height: 16px; */
+}
+.row_ch{
+    display:block;
+
+    background: red;
+    overflow:hidden;
+    width: 95px;
+    height:40px
+}
+.fecha_ch{
+    display:block;
+    width: 300px;
+    background-color: aliceblue;
+}
