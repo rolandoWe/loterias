@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid container_np">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">LOTORIV</a>
+              <a class="navbar-brand" href="#">LOTERIV</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -47,22 +47,55 @@
           </nav>
 
           <div class="contenedor">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, voluptatum autem aliquid tempore enim, eos quia tenetur modi qui doloremque incidunt dolorem nemo excepturi magnam id sint! Quo, commodi itaque ipsum mollitia deleniti fugiat.</p>
+            <header class="header">
+              <h1>Resultados de la Loteria Nacional, Chances, Nuevos Tiempos, Tres Monazos y Lotto.</h1>
+            </header>
+          <div class="ultimos_resultados">
+            <ul class="res_tiemp_hoy">
+              <h2>Ultimos resultados de los Nuevos tiempos</h2>
+              <li>1pm: <span class="tiempos_hoy tiempos_hoy1">--</span></li>
+              <li>4:30pm: <span class="tiempos_hoy tiempos_hoy4">--</span></li>
+              <li>7:30pm: <span class="tiempos_hoy tiempos_hoy7">--</span></li>
+              <!-- <li>Numero del sorteo: <span class="tiempos_sorteo">--</span></li> -->
+          </ul>
+            <ul class="res_lotto_hoy">
+              <h2>Ultimos resultados de Lotto</h2>
+              <!-- <li>
+                 <span class="lotto_hoy">--</span>
+              </li>
+              <li>
+                <span class="lotto_hoy">--</span>
+              </li> -->
+          </ul>
+            <ul class="res_chances_hoy">
+              <h2>Ultimos resultados de los Chances</h2>
+              <h3 class="fecha_ch">Ultimos resultados de los Chances</h3>
+              <!-- <li>
+                 <span class="lotto_hoy">--</span>
+              </li>
+              <li>
+                <span class="lotto_hoy">--</span>
+              </li> -->
+          </ul>
+            <ul class="res_monazos_hoy">
+              <h2>Ultimos resultados de los Chances</h2>
+              <h3 class="fecha_m">Ultimos resultados de los Chances</h3>
+              <!-- <li>
+                 <span class="lotto_hoy">--</span>
+              </li>
+              <li>
+                <span class="lotto_hoy">--</span>
+              </li> -->
+          </ul>
+          </div>
 
-            <ul>
-                <h2>Resultados del dia de hoy Nuevos tiempos</h2>
-                <li>1pm: <span class="tiempos_hoy tiempos_hoy1">--</span></li>
-                <li>4:30pm: <span class="tiempos_hoy tiempos_hoy4">--</span></li>
-                <li>7:30pm: <span class="tiempos_hoy tiempos_hoy7">--</span></li>
-                <li>Numero del sorteo: <span class="tiempos_sorteo">--</span></li>
-            </ul>
 <!-- ULTIMOS RESULTADOS -->
 
             <h3>Ultimos resultados.</h3>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                       Nuevos Tiempos
                     </button>
                   </h2>
@@ -92,7 +125,7 @@
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <button class="accordion-button collapsed bg-light mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                       Chances
                     </button>
                   </h2>
@@ -120,17 +153,27 @@
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    <button class="accordion-button collapsed bg-light mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                       Lotto
                     </button>
                   </h2>
                   <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                    <div class="accordion-body">
+                      <ul class="ul_lotto">
+                        <!-- <li>
+                          <span class="n n_1">1</span>
+                          <span class="n n_2">2</span>
+                          <span class="n n_3">3</span>
+                          <span class="n n_4">4</span>
+                          <span class="n n_5">5</span>
+                        </li> -->
+                      </ul>
+                    </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingFour">
-                    <button class="accordion-button collapsed bg-secondary text-light"type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    <button class="accordion-button collapsed bg-light mt-2 mb-2"type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                       monazos
                     </button>
                   </h2>
