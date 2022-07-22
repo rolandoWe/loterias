@@ -6,6 +6,11 @@
 .container_np{
     padding-left: 0;
     padding-right: 0;
+    max-width: 1200px;
+}
+.navbar{
+    position: sticky;
+    top: -10px;
 }
 .navbar-brand{
     font-size: 30px;
@@ -43,7 +48,7 @@
 .ultimos_resultados{
     width:100%;
     margin: 30px 0;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -52,8 +57,20 @@
 .res_tiemp_hoy{
     width:45%;
     background: linear-gradient(blue,rgb(1, 235, 118));
-    color: white;
+    /* color: white; */
+    text-shadow: 1px 1px 2px white;
+    font-size: 25px;
     padding: 20px 0 20px 5px;
+    list-style: none;
+}
+.res_tiemp_hoy h2{
+    color: white;
+    text-shadow: none;
+}
+.fecha_tiemp{
+    font-size: 15px;
+    color: white;
+    text-shadow: none;
 }
 .res_lotto_hoy{
     width:50%;
@@ -81,7 +98,7 @@
     padding-left: 5px;
     background-color: rgba(0, 0, 0, 0.2);
 }
-.res_chances_hoy b,.res_monazos_hoy b{
+.res_chances_hoy b,.res_monazos_hoy b,.n_t{
     font-size: 23px;
     text-shadow: 1px 1px 3px black;
 }
@@ -94,7 +111,7 @@
 .res_monazos_hoy b{
     color: white;
 }
-.res_monazos_hoy h3,.res_monazos_hoy h2{
+.res_monazos_hoy h3,.res_monazos_hoy h2,.n_t{
     color: white;
     font-size: 23px;
 }

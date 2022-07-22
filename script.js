@@ -1,12 +1,4 @@
 
-let numero="1-2-3-4";
-console.log(numero)
-
-    numero=numero.substring(0,numero.length-2)
-console.log(numero)
-
-
-
 let tiempos_hoy1=document.querySelector('.tiempos_hoy1')
 let tiempos_hoy4=document.querySelector('.tiempos_hoy4')
 let tiempos_hoy7=document.querySelector('.tiempos_hoy7')
@@ -26,7 +18,9 @@ let mas=null
 function tiemposHoy(){
     fetch('https://integration.jps.go.cr/api/App/nuevostiempos/last').then(dato=>{
         dato.json().then(respuesta=>{
-            // console.log(respuesta)
+         
+            document.querySelector('.fecha_tiemp').innerHTML="Fecha: "+respuesta.dia.substring(0,respuesta.dia.length-9)
+            console.log(respuesta)
             if(respuesta.manana===null){
             tiempos_hoy1.innerHTML="";
             }
@@ -292,33 +286,70 @@ function chancesHoy(){
 function monazosHoy(){
     fetch('https://integration.jps.go.cr/api/App/tresmonazos/last').then(dato=>{
         dato.json().then(resp=>{
-console.log(resp)
+// console.log(resp)
         let form_fech=resp.dia;
             form_fech=form_fech.substring(0,form_fech.length-9)
-        res_monazos_hoy.innerHTML=` 
-        <h2>Ultimos resultados de los 3 Monázos</h2>
-        <h3 class="fecha_m">Fecha: ${form_fech}</h3>
-        <li>
-           <span class="lotto_hoy"><b>Dia:</b> 
-           <span class="n">${resp.manana.numeros[0]}</span>
-           <span class="n">${resp.manana.numeros[1]}</span>
-           <span class="n">${resp.manana.numeros[2]}</span>
-           </span>
-        </li>
-        <li>
-           <span class="lotto_hoy"><b>Tarde:</b> 
-           <span class="n">${resp.mediaTarde.numeros[0]}</span>
-           <span class="n">${resp.mediaTarde.numeros[1]}</span>
-           <span class="n">${resp.mediaTarde.numeros[2]}</span>
-           </span>
-        </li>
-        <li>
-           <span class="lotto_hoy"><b>Noche:</b> 
-           <span class="n">${resp.tarde.numeros[0]}</span>
-           <span class="n">${resp.tarde.numeros[1]}</span>
-           <span class="n">${resp.tarde.numeros[2]}</span>
-           </span>
-        </li>`
+            // console.log(resp)
+
+            if(resp.manana!=null){
+         res_monazos_hoy.innerHTML=` 
+         <h2>Ultimos resultados de los 3 Monázos</h2>
+         <h3 class="fecha_m">Fecha: ${form_fech}</h3>
+         <li>
+            <span class="lotto_hoy"><b>Dia:</b> 
+            <span class="n">${resp.manana.numeros[0]}</span>
+            <span class="n">${resp.manana.numeros[1]}</span>
+            <span class="n">${resp.manana.numeros[2]}</span>
+            </span>
+         </li>`
+            }
+            if(resp.mediaTarde!=null){
+         res_monazos_hoy.innerHTML=` 
+         <h2>Ultimos resultados de los 3 Monázos</h2>
+         <h3 class="fecha_m">Fecha: ${form_fech}</h3>
+         <li>
+            <span class="lotto_hoy"><b>Dia:</b> 
+            <span class="n">${resp.manana.numeros[0]}</span>
+            <span class="n">${resp.manana.numeros[1]}</span>
+            <span class="n">${resp.manana.numeros[2]}</span>
+            </span>
+         </li>
+         <li>
+            <span class="lotto_hoy"><b>Tarde:</b> 
+            <span class="n">${resp.mediaTarde.numeros[0]}</span>
+            <span class="n">${resp.mediaTarde.numeros[1]}</span>
+            <span class="n">${resp.mediaTarde.numeros[2]}</span>
+            </span>
+         </li>
+         `
+            }
+            if(resp.tarde!=null){
+         res_monazos_hoy.innerHTML=` 
+         <h2>Ultimos resultados de los 3 Monázos</h2>
+         <h3 class="fecha_m">Fecha: ${form_fech}</h3>
+         <li>
+            <span class="lotto_hoy"><b>Dia:</b> 
+            <span class="n">${resp.manana.numeros[0]}</span>
+            <span class="n">${resp.manana.numeros[1]}</span>
+            <span class="n">${resp.manana.numeros[2]}</span>
+            </span>
+         </li>
+         <li>
+            <span class="lotto_hoy"><b>Tarde:</b> 
+            <span class="n">${resp.mediaTarde.numeros[0]}</span>
+            <span class="n">${resp.mediaTarde.numeros[1]}</span>
+            <span class="n">${resp.mediaTarde.numeros[2]}</span>
+            </span>
+         </li>
+         <li>
+            <span class="lotto_hoy"><b>Noche:</b> 
+            <span class="n">${resp.tarde.numeros[0]}</span>
+            <span class="n">${resp.tarde.numeros[1]}</span>
+            <span class="n">${resp.tarde.numeros[2]}</span>
+            </span>
+         </li>
+         `
+            }
         })
     })
 }
