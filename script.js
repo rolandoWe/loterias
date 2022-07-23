@@ -70,12 +70,15 @@ function todosTiempos(){
       dato.json().then(respuesta=>{
             for(let i of respuesta){
                 if(i!=null){
-                    // console.log(i)
+                    console.log(i)
+
                     verReventado(i)
+                    let= formatFecha=i.dia;
+                    formatFecha=formatFecha.substring(0,formatFecha.length-9)
 
                     tiempoBody.innerHTML+=`
                     <tr class="tr">
-                        <th scope="row">${i.dia}</th>
+                        <th scope="row">${formatFecha}</th>
                         <td><span class="numero numero1">${man}</span></td>
                         <td><span class="numero numero4">${m_tar}</span></td>
                         <td><span class="numero numero7">${tar}</span></td>
@@ -191,10 +194,12 @@ function lotoTodas(){
             for(let l of resp){
                 // console.log(l)
                 // console.log(l.numeros)
+                let format_fecha=l.fecha;
+                    format_fecha=format_fecha.substring(0,format_fecha.length-9)
 
                 ul_lotto.innerHTML+=`                       
              <li>
-                <span class="n_f n_fecha">${l.fecha} </span>
+                <span class="n_f n_fecha">${format_fecha} </span>
                 <span class="n_f n_fecha">numeros: </span><br>
                 <span class="n n_1"><b>${l.numeros[0]}</b></span>
                 <span class="n n_2"><b>${l.numeros[1]}</b></span>
