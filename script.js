@@ -8,8 +8,15 @@ let chancesBody=document.querySelector('.chancesBody')
 let ul_lotto=document.querySelector('.ul_lotto')
 let res_lotto_hoy=document.querySelector('.res_lotto_hoy')
 let res_chances_hoy=document.querySelector('.res_chances_hoy')
+let res_loteria_hoy=document.querySelector('.res_loteria_hoy')
 let res_monazos_hoy=document.querySelector('.res_monazos_hoy')
 let fecha_cha=document.querySelector('.fecha_ch')
+let l1;
+let l2;
+let l3;
+let ls1=null;
+let ls2=null;
+let ls3=null;
 let man="?";
 let m_tar="?";
 let tar="?"
@@ -20,7 +27,7 @@ function tiemposHoy(){
         dato.json().then(respuesta=>{
          
             document.querySelector('.fecha_tiemp').innerHTML="Fecha: "+respuesta.dia.substring(0,respuesta.dia.length-9)
-            console.log(respuesta)
+            // console.log(respuesta)
             if(respuesta.manana===null){
             tiempos_hoy1.innerHTML="";
             }
@@ -70,7 +77,7 @@ function todosTiempos(){
       dato.json().then(respuesta=>{
             for(let i of respuesta){
                 if(i!=null){
-                    console.log(i)
+                    // console.log(i)
 
                     verReventado(i)
                     let= formatFecha=i.dia;
@@ -229,7 +236,7 @@ function lotoHoy(){
         //    console.log(resultas)
          res_lotto_hoy.innerHTML+=`
          <li>
-         <span class="lotto_hoy_f">${resultas} numeros: </span><br>
+         <span class="lotto_hoy_f">Fecha: ${resultas}<br> <b>Numeros</b>: </span><br>
          <span class="lotto_hoy n">${result.numeros[0]}</span>
          <span class="lotto_hoy n">${result.numeros[1]}</span>
          <span class="lotto_hoy n">${result.numeros[2]}</span>
@@ -237,7 +244,7 @@ function lotoHoy(){
          <span class="lotto_hoy n">${result.numeros[4]}</span>
          </li>
          <li>
-        <span class="lotto_hoy_f">${resultas} numeros revancha: </span><br>
+         <span class="lotto_hoy_f"> <b>Revancha</b>: </span><br>
         <span class="lotto_hoy n">${result.numerosRevancha[0]}</span>
         <span class="lotto_hoy n">${result.numerosRevancha[1]}</span>
         <span class="lotto_hoy n">${result.numerosRevancha[2]}</span>
@@ -267,22 +274,46 @@ function chancesHoy(){
             // console.log(fecha)
                 fecha=fecha.substring(0,fecha.length-9)
             // console.log(fecha)
+            let serie1=null
+            let serie2=null
+            let serie3=null
+            let serie4=null
+            if(res.premios[0].serie<100){
+                serie1='0'+res.premios[0].serie
+            }else{
+                serie1=res.premios[0].serie
+            }
+            if(res.premios[1].serie<100){
+                serie2='0'+res.premios[1].serie
+            }else{
+                serie2=res.premios[1].serie
+            }
+            if(res.premios[2].serie<100){
+                serie3='0'+res.premios[2].serie
+            }else{
+                serie3=res.premios[2].serie
+            }
+            if(res.premios[3].serie<100){
+                serie4='0'+res.premios[3].serie
+            }else{
+                serie4=res.premios[3].serie
+            }
 
             fecha_cha.innerHTML=res.fecha
             res_chances_hoy.innerHTML=` 
             <h2>Ultimos resultados de los Chances</h2>
-            <h3 class="fecha_ch">Fecha: ${fecha}</h3>             
+            <span class="fecha_ch">Fecha: ${fecha}</span>             
             <li>
-            <span class="lotto_hoy"><b>1°:</b> <span class="n">${res.premios[0].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${res.premios[0].serie}</span>&nbsp;<b> premio:</b> <span>${mont1}</span></span>
+            <span class="lotto_hoy"><b>1°:</b> <span class="n">${res.premios[0].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${serie1}</span>&nbsp;<b> premio:</b> <span>${mont1}</span></span>
            </li>
             <li>
-            <span class="lotto_hoy"><b>2°:</b> <span class="n">${res.premios[1].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${res.premios[1].serie}</span>&nbsp;<b> premio:</b> <span>${mont2}</span></span>
+            <span class="lotto_hoy"><b>2°:</b> <span class="n">${res.premios[1].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${serie2}</span>&nbsp;<b> premio:</b> <span>${mont2}</span></span>
            </li>
             <li>
-            <span class="lotto_hoy"><b>3°:</b> <span class="n">${res.premios[2].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${res.premios[2].serie}</span>&nbsp;<b> premio:</b> <span>${mont3}</span></span>
+            <span class="lotto_hoy"><b>3°:</b> <span class="n">${res.premios[2].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${serie3}</span>&nbsp;<b> premio:</b> <span>${mont3}</span></span>
            </li>
             <li>
-            <span class="lotto_hoy"><b>4°:</b> <span class="n">${res.premios[3].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${res.premios[3].serie}</span>&nbsp;<b> premio:</b> <span>${mont4}</span></span>
+            <span class="lotto_hoy"><b>4°:</b> <span class="n">${res.premios[3].numero} </span> &nbsp; &nbsp;<b>serie:</b> <span class="n">${serie4}</span>&nbsp;<b> premio:</b> <span>${mont4}</span></span>
            </li>
            `
         })
@@ -299,7 +330,7 @@ function monazosHoy(){
             if(resp.manana!=null){
          res_monazos_hoy.innerHTML=` 
          <h2>Ultimos resultados de los 3 Monázos</h2>
-         <h3 class="fecha_m">Fecha: ${form_fech}</h3>
+         <span class="fecha_m">Fecha: ${form_fech}</span>
          <li>
             <span class="lotto_hoy"><b>Dia:</b> 
             <span class="n">${resp.manana.numeros[0]}</span>
@@ -311,7 +342,7 @@ function monazosHoy(){
             if(resp.mediaTarde!=null){
          res_monazos_hoy.innerHTML=` 
          <h2>Ultimos resultados de los 3 Monázos</h2>
-         <h3 class="fecha_m">Fecha: ${form_fech}</h3>
+         <span class="fecha_m">Fecha: ${form_fech}</span>
          <li>
             <span class="lotto_hoy"><b>Dia:</b> 
             <span class="n">${resp.manana.numeros[0]}</span>
@@ -331,7 +362,7 @@ function monazosHoy(){
             if(resp.tarde!=null){
          res_monazos_hoy.innerHTML=` 
          <h2>Ultimos resultados de los 3 Monázos</h2>
-         <h3 class="fecha_m">Fecha: ${form_fech}</h3>
+         <span class="fecha_m">Fecha: ${form_fech}</span>
          <li>
             <span class="lotto_hoy"><b>Dia:</b> 
             <span class="n">${resp.manana.numeros[0]}</span>
@@ -358,6 +389,75 @@ function monazosHoy(){
         })
     })
 }
+function loteriaHoy(){
+    fetch('https://integration.jps.go.cr/api/App/loterianacional/last').then(dato=>{
+        dato.json().then(resp=>{
+            console.log(resp)
+            console.log(resp.premios)
+            let fecha=resp.fecha;
+                fecha=fecha.substring(0,fecha.length-9)
+            for(let l of resp.premios){
+                if(l.tipo===1){
+                    // console.log(l.numero)
+                    if(l.serie<100){
+                        ls1="0"+l.serie
+                    }else{
+                        ls1=l.serie
+                    }
+                 l1="<b>1° :</b>"+
+                 ` <span class="n">${l.numero}</span>`+"&nbsp; &nbsp;"+
+                 ` <b>serie: </b>`+
+                 ` <span class="n">${ls1}</span>`+"&nbsp; &nbsp;"+
+                 ` <b>Premio: </b>`+
+                 ` <span class="monto_loteria">${l.monto.toLocaleString('en-US')}</span>`
+                }
+                if(l.tipo===2){
+                    console.log(l.numero)
+                    console.log(l.serie)
+                    if(l.serie<100){
+                        ls2="0"+l.serie
+                    }else{
+                        ls2=l.serie
+                    }
+
+                     l2="<b>2° :</b>"+
+                     ` <span class="n">${l.numero}</span>`+"&nbsp; &nbsp;"+
+                     ` <b>serie: </b>`+
+                     ` <span class="n">${ls2}</span>`+"&nbsp; &nbsp;"+
+                     ` <b>Premio: </b>`+
+                     ` <span class="monto_loteria">${l.monto.toLocaleString('en-US')}</span>`
+                }
+                if(l.tipo===3){
+                    console.log(l.numero)
+                    if(l.serie<100){
+                        ls3="0"+l.serie
+                    }else{
+                        ls3=l.serie
+                    }
+                     l3="<b>3° :</b>"+
+                     ` <span class="n">${l.numero}</span>`+"&nbsp; &nbsp;"+
+                 ` <b>serie: </b>`+
+                 ` <span class="n">${ls3}</span>`+"&nbsp; &nbsp;"+
+                 ` <b>Premio: </b>`+
+                 ` <span class="monto_loteria">${l.monto.toLocaleString('en-US')}</span>`
+                }
+            res_loteria_hoy.innerHTML=`<h2>Ultimos resultados de la Loteria Nacional</h2>
+            <span class="fecha_m">Fecha: ${fecha}</span>
+             <li>
+               <span class="lotto_hoy">${l1}</span>
+            </li>
+             <li>
+               <span class="lotto_hoy">${l2}</span>
+            </li>
+             <li>
+               <span class="lotto_hoy">${l3}</span>
+            </li>
+            `
+
+            }
+        })
+    })
+}
 tiemposHoy()
 todosTiempos()
 todosChances()
@@ -365,3 +465,4 @@ lotoTodas()
 lotoHoy()
 chancesHoy()
 monazosHoy()
+loteriaHoy()

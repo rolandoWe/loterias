@@ -60,6 +60,22 @@
 .contenedor h3{
     font-size: 20px;
 }
+.result_parrafo{
+    font-size: 30px;
+    padding-top: 30px;
+    padding-left: 5px;
+    text-align: center;
+}
+.solo_cr{
+    display: block;
+    text-align: center;
+    background-color: orange;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px black;
+    font-size: 20px;
+}
 .ultimos_resultados{
     width:100%;
     margin: 30px 0;
@@ -70,65 +86,82 @@
     justify-content: space-evenly;
 }
 .res_tiemp_hoy{
-    width:45%;
-    background: linear-gradient(blue,rgb(1, 235, 118));
-    /* color: white; */
-    text-shadow: 1px 1px 2px white;
-    font-size: 25px;
-    padding: 20px 0 20px 5px;
-    list-style: none;
-}
-.res_tiemp_hoy h2{
+    width:100%;
+    background: linear-gradient(rgb(0, 0, 255,.9),rgb(1, 235, 118,.9));
     color: white;
-    text-shadow: none;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    font-size: 25px;
+    padding: 50px 0 50px 10px;
+    list-style: none;
+    margin: 0 auto;
 }
-.fecha_tiemp{
+.res_tiemp_hoy h2,.res_chances_hoy h2,.res_lotto_hoy h2,.res_monazos_hoy h2,.res_loteria_hoy h2{
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+
+    font-size: 30px;
+}
+.fecha_tiemp,.fecha_m{
     font-size: 15px;
     color: white;
-    text-shadow: none;
+    /* text-shadow: none; */
+}
+.res_tiemp_hoy li{
+    background: rgba(1, 1, 173, 0.1);
+    margin: 5px 0;
 }
 .res_lotto_hoy{
-    width:50%;
-    background: linear-gradient(to right,blue,orange);
+    width:100%;
+    background: linear-gradient(to right,rgb(0, 0, 255,.9),rgb(255, 165, 0,.9));
     list-style: none;
-    padding: 20px 5px;
+    padding: 50px 0 50px 10px;
+    margin: 0 auto;
 }
 
 .res_lotto_hoy h2,.lotto_hoy_f{
-    color: white;
+    color: rgb(255, 255, 255);
 }
-.res_chances_hoy{
+.res_chances_hoy,.res_loteria_hoy{
     width:100%;
-    background: linear-gradient(to right,purple,orange);
+    background: linear-gradient(to right,rgb(128, 0, 128,.9),rgb(255, 165, 0,.9));
     list-style: none;
-    padding: 20px 5px;
+    padding: 50px 0 50px 10px;
     color: white;
+    margin: 0 auto;
 }
 .res_chances_hoy h3{
     background: transparent;
 }
-.res_chances_hoy li,.res_monazos_hoy li{
+.res_chances_hoy li,.res_monazos_hoy li,.res_loteria_hoy li{
     /* border: solid black 1px; */
     margin: 10px 0;
     padding-left: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
-.res_chances_hoy b,.res_monazos_hoy b,.n_t{
+.res_chances_hoy b,.res_monazos_hoy b,.n_t,.res_loteria_hoy b{
     font-size: 23px;
-    text-shadow: 1px 1px 3px black;
+    /* text-shadow: 1px 1px 3px black; */
+}
+.fecha_ch{
+    font-size: 18px;
 }
 .res_monazos_hoy{
-    background: linear-gradient(to left,grey,red);
-    width:50%;
+    background: linear-gradient(to left,rgb(128, 128, 128,.9),rgb(255, 0, 0,.9));
+    width:100%;
     list-style: none;
-    padding-left: 2px;
+    padding: 50px 0 50px 10px;
+    margin: 0 auto;
 }
 .res_monazos_hoy b{
     color: white;
 }
 .res_monazos_hoy h3,.res_monazos_hoy h2,.n_t{
     color: white;
-    font-size: 23px;
+    /* font-size: 23px; */
+}
+.res_loteria_hoy{
+    background: linear-gradient(to right,rgb(128, 0, 0,.9),rgb(0, 30, 255,.9));
+
 }
 .tr:nth-child(even){
 background-color: rgb(242, 242, 242);
@@ -153,7 +186,7 @@ background-color: rgb(242, 242, 242);
 .fecha_ch{
     display:block;
     width: 300px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
 .ul_lotto li{
  background-color: aliceblue;
@@ -180,7 +213,7 @@ background-color: rgb(242, 242, 242);
         height: 150px;
     }
     .carousel-inner{
-        height: 150px;
+        height: 100px;
     }
     .header h1{
         width:100%;
@@ -188,5 +221,17 @@ background-color: rgb(242, 242, 242);
     }
     .ultimos_resultados{
         margin: 0;
+    }
+    .result_parrafo{
+        font-size: 20px;
+    }
+    .solo_cr{
+        font-size: 18px;
+    }
+    .monto_loteria{
+        display: block;
+        font-size: 25px;
+        text-align: right;
+        padding-right: 10%;
     }
 }
